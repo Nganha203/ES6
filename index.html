@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quản lý học viện nghiên cứu &amp; giảng dạy </title>
+    <!-- Import Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-5">Quản lý học viện nghiên cứu &amp; giảng dạy</h1>
+
+        <!-- SINH ZIEN -->
+        <div class=" text-center">
+            <!-- Header -->
+            <div class="card-header myCardHeader">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="text-left text-primary font-weight-bold">Danh sách Sinh viên</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-primary" id="btnThemSV" data-toggle="modal" data-target="#myModal">Thêm
+                            Sinh viên</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sinh viên -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Mã</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Toán</th>
+                        <th scope="col">Lý</th>
+                        <th scope="col">Hóa</th>
+                        <th scope="col">ĐTB</th>
+                        <th scope="col">Tuy chon</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodySV">
+
+                    <!-- Thêm các hàng dữ liệu khác ở đây -->
+
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- NHAN VIEN -->
+        <div class="card text-center my-5">
+            <!-- Header -->
+            <div class="card-header myCardHeader">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="text-left text-primary font-weight-bold">Danh sách nhân viên</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-primary" id="btnThemNV" data-toggle="modal" data-target="#myModal">Thêm
+                            nhân viên</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nhân viên -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Mã</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Số ngày làm việc</th>
+                        <th scope="col">Lương theo ngày</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbodyNV">
+                    
+
+                    <!-- Thêm các hàng dữ liệu khác ở đây -->
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <!-- KHACH HANG -->
+        <div class="card text-center mb-5">
+            <!-- Header -->
+            <div class="card-header myCardHeader">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="text-left text-primary font-weight-bold">Danh sách Khách hàng</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-primary" id="btnThemKH" data-toggle="modal" data-target="#myModal">Thêm
+                            Khách hàng</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khách hàng -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Địa chỉ</th>
+                        <th scope="col">Mã</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tên công ty</th>
+                        <th scope="col">Giá trị hóa đơn</th>
+                        <th scope="col">Đánh giá</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyKH">
+                   
+
+                    <!-- Thêm các hàng dữ liệu khác ở đây -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- FORM SV -->
+        <div id="form-containerSV" class="form-container">
+            <div id="form-addSV" class="form">
+                <h2>Thêm sinh viên</h2>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Họ tên" required><br>
+
+                    <input type="text" id="address" name="address" placeholder="Địa chỉ"  required><br>
+
+                    <input type="text" id="id" name="id" placeholder="Mã sinh viên" required><br>
+
+                    <input type="email" id="email" name="email" placeholder="Email" required><br>
+
+                    <input type="number" id="math-grade" name="math-grade" min="0" max="10" placeholder="Toán" required><br>
+
+                    <input type="number" id="physics-grade" name="physics-grade" min="0" max="10" placeholder="Lý" required><br>
+
+                    <input type="number" id="chemistry-grade" name="chemistry-grade" min="0" max="10" placeholder="Hóa" required><br>
+
+                    <button type="submit" id="themSV" class="btn btn-success">Thêm</button>
+                    <button type="button" id="btn-capNhatSV" class="btn btn-primary">Cập nhật</button>
+                    <button type="button" id="btn-cancelSV" class="btn btn-danger">Hủy</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FORM NV -->
+        <div id="form-containerNV" class="form-container">
+            <div id="form-addNV" class="form">
+                <h2>Thêm nhân viên</h2>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Họ tên" required><br>
+
+                    <input type="text" id="address" name="address" placeholder="Địa chỉ"  required><br>
+
+                    <input type="text" id="id" name="id" placeholder="Mã sinh viên" required><br>
+
+                    <input type="email" id="email" name="email" placeholder="Email" required><br>
+
+                    <input type="text"  placeholder="Số ngày làm việc" required><br>
+
+                    <input type="text"  name="physics-grade" min="0" max="10" placeholder="Lương theo ngày" required><br>
+
+                    <button type="submit" class="btn btn-success">Thêm</button>
+                    <button type="button" id="btn-capNhatNV" class="btn btn-primary">Cập nhật</button>
+                    <button type="button" id="btn-cancelNV" class="btn btn-danger">Hủy</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FORM KH -->
+        <div id="form-containerKH" class="form-container">
+            <div id="form-addKH" class="form">
+                <h2>Thêm nhân viên</h2>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Họ tên" required><br>
+
+                    <input type="text" id="address" name="address" placeholder="Địa chỉ"  required><br>
+
+                    <input type="text" id="id" name="id" placeholder="Mã sinh viên" required><br>
+
+                    <input type="email" id="email" name="email" placeholder="Email" required><br>
+
+                    <input type="text" placeholder="Tên công ty" required><br>
+
+                    <input type="text" placeholder="Giá trị hóa đơn" required ><br>
+
+                    <input type="text" placeholder="Đánh giá" required><br>
+
+                    <button type="submit" class="btn btn-success">Thêm</button>
+                    <button type="button" id="btn-capNhatKH" class="btn btn-primary">Cập nhật</button>
+                    <button type="button" id="btn-cancelKH" class="btn btn-danger">Hủy</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- Import Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="./js/main.js"></script>
+    <!-- <script src="./UI/ui.js"></script> -->
+    
+    
+</body>
+
+</html>
